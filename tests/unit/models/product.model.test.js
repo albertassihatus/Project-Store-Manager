@@ -2,9 +2,7 @@ const { expect } = require("chai");
 const sinon = require("sinon");
 const { productModel } = require("../../../src/models");
 const connection = require("../../../src/models/connection");
-const chai = require("chai");
 const { products } = require("../mocks/productMock");
-const { expect } = chai;
 
 describe("Verificar o Model", function () {
   afterEach(sinon.restore);
