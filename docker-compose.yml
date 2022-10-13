@@ -5,7 +5,7 @@ services:
   node:
     # Imagem base do container
     image: node:16.14
-    # Nome do container parafacilitar execução
+    # Nome do container para facilitar execução
     container_name: store_manager
     # Mesmo que `docker run -t`
     tty: true
