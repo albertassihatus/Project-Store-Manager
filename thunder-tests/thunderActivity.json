@@ -32,13 +32,18 @@
     "colId": "history",
     "containerId": "",
     "name": "http://localhost:3000/",
-    "url": "http://localhost:3000/products/2",
+    "url": "http://localhost:3000/products",
     "method": "GET",
     "sortNum": 0,
     "created": "2022-10-11T18:32:06.508Z",
-    "modified": "2022-10-13T14:42:48.822Z",
+    "modified": "2022-10-13T15:41:33.793Z",
     "headers": [],
     "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\": \"xabvl\"\n}",
+      "form": []
+    },
     "tests": []
   },
   {
