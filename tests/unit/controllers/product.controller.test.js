@@ -3,7 +3,7 @@ const sinon = require("sinon");
 const { productService } = require("../../../src/services");
 chai.use(require("sinon-chai"));
 const { productController } = require("../../../src/controllers");
-const { products } = require("../mocks/productMock");
+const { products, newProduct } = require("../mocks/productMock");
 
 const { expect } = chai;
 
@@ -64,6 +64,22 @@ describe("Verificar o Controller", function () {
 
     expect(res.status).to.have.been.calledOnceWith(404);
     expect(res.json).to.have.been.calledWith({ message: "Product not found" });
+  });
+
+  it("Cadastrando um novo Produto", async function () {
+    const res = {};
+    const req = { body: newProduct };;
+
+    res.status = sinon.stub().returns(res);
+    res.json = sinon.stub().returns();
+    sinon
+      .stub(productService, "createProduct")
+      .resolves({ type: null, message: newProduct });
+
+    await productController.createProduct(req, res);
+
+    expect(res.status).to.have.been.calledWith(201);
+    expect(res.json).to.have.been.calledWith(newProduct);
   });
   
 });

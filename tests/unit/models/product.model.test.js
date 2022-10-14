@@ -2,7 +2,7 @@ const { expect } = require("chai");
 const sinon = require("sinon");
 const { productModel } = require("../../../src/models");
 const connection = require("../../../src/models/connection");
-const { products } = require("../mocks/productMock");
+const { products, newProduct } = require("../mocks/productMock");
 
 describe("Verificar o Model", function () {
   afterEach(sinon.restore);
@@ -22,5 +22,10 @@ describe("Verificar o Model", function () {
 
     expect(result).to.be.deep.equal(products[0]);
   });
-  
-});
+
+  it("Verifica se é possivel cadastrar um produto", async function () {
+    sinon.stub(connection, "execute").resolves([{ insertId: 4}]);
+    const result = await productModel.newProduct(newProduct);
+    expect(result).to.equal(4);
+  });
+  });

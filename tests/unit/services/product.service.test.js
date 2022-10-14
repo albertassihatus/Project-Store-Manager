@@ -4,6 +4,8 @@ const { productModel } = require("../../../src/models");
 const chai = require("chai");
 const { products } = require("../mocks/productMock");
 const { productService } = require("../../../src/services");
+const { nameValidate } = require("../../../src/middlewares/productsValidations");
+const { createProduct } = require("../../../src/services/product.service");
 
 describe("Verificar o Service", function () {
   afterEach(sinon.restore);
@@ -25,4 +27,15 @@ describe("Verificar o Service", function () {
       expect(result.message).to.be.deep.equal(products[0]);
     });
   });
+    describe("Cadastro de um produto com nome válido", function () {
+      it("retorna o ID do produto cadastrado", async function () {
+        sinon.stub(productModel, "newProduct").resolves([{ insertId: 1 }]);
+        sinon.stub(productModel, "getById").resolves(products[0]);
+
+        const result = await createProduct(nameValidate);
+
+        expect(result.type).to.equal(null);
+        expect(result.message).to.deep.equal(products[0]);
+      });
+    });
 });
