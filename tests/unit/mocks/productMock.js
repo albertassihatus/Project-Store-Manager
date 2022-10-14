@@ -14,10 +14,17 @@ const products = [
 ];
 
 const newProduct = {
+  id: 4,
   name: "ProdutoX",
+};
+
+const updatedProduct = {
+  id: 1,
+  name: "Testes",
 };
 
 module.exports = {
   products,
   newProduct,
+  updatedProduct,
 };

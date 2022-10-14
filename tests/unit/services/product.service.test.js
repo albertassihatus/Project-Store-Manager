@@ -27,15 +27,16 @@ describe("Verificar o Service", function () {
       expect(result.message).to.be.deep.equal(products[0]);
     });
   });
-    describe("Cadastro de um produto com nome válido", function () {
-      it("retorna o ID do produto cadastrado", async function () {
-        sinon.stub(productModel, "newProduct").resolves([{ insertId: 1 }]);
-        sinon.stub(productModel, "getById").resolves(products[0]);
 
-        const result = await createProduct(nameValidate);
+  describe("Cadastro de um produto com nome válido", function () {
+    it("retorna o ID do produto cadastrado", async function () {
+      sinon.stub(productModel, "newProduct").resolves([{ insertId: 1 }]);
+      sinon.stub(productModel, "getById").resolves(products[0]);
 
-        expect(result.type).to.equal(null);
-        expect(result.message).to.deep.equal(products[0]);
-      });
+      const result = await createProduct(nameValidate);
+
+      expect(result.type).to.equal(null);
+      expect(result.message).to.deep.equal(products[0]);
     });
+  });
 });
