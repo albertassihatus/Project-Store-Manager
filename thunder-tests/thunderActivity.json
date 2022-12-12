@@ -36,12 +36,12 @@
     "method": "GET",
     "sortNum": 0,
     "created": "2022-10-11T18:32:06.508Z",
-    "modified": "2022-10-14T15:25:11.475Z",
+    "modified": "2022-10-14T15:49:08.962Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"name\": \"ProdutoX\"\n}",
+      "raw": "{\n  \"name\": \"dsfsdfdsfsdfsdfsdfsdf\"\n}",
       "form": []
     },
     "tests": []
